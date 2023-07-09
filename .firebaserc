@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "planning-man-e2a32": {
+      "hosting": {
+        "firebase-angular": [
+          "planning-man-e2a32"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "planning-man-e2a32"
+  }
+}
