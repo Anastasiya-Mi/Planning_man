@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AngularFireModule}from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+// import { AngularFirestore } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environments';
 import { LoginComponent } from './component/login/login.component';
@@ -18,8 +19,9 @@ import { FooterComponent } from './component/footer/footer.component';
 import { MainComponent } from './component/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskComponent } from './component/task/task.component';
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { BoardComponent } from './component/board/board.component';
+// import { BoardComponent } from './component/board/board.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateTaskComponent } from './component/create-task/create-task.component';
@@ -28,10 +30,15 @@ import { TaskDialogComponent } from './component/task-dialog/task-dialog.compone
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
+// import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -44,7 +51,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     FooterComponent,
     MainComponent,
     TaskComponent,
-    BoardComponent,
+    // BoardComponent,
     CreateTaskComponent,
     TaskDialogComponent
   ],
@@ -62,10 +69,18 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     MatButtonModule,
     MatDialogModule,
     MatInputModule,
+    MatTabsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    MatSelectModule,
+    MatFormFieldModule,
+    MatPaginatorModule
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

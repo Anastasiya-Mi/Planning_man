@@ -1,0 +1,28 @@
+mat-toolbar{
+  display:flex;
+  justify-content:space-between;
+  /* gap: 20 px; */
+  /* flex: 1 1 auto; */
+  align-items: center;
+  padding: 20px;
+}
+
+.navbar-brand{
+  color: aliceblue;
+  display:flex;
+}
+h2{
+  padding-left: 10px;
+}
+.btn_wrap{
+  display:flex;
+  justify-content:center;
+  gap: 10px;
+}
+.mat-mdc-form-field-infix {
+  flex: auto;
+  min-width: 0;
+  width: 20px;
+  position: relative;
+  box-sizing: border-box;
+}
