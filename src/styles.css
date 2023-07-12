@@ -1,0 +1,45 @@
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+app-root {
+  background: pink;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* flex: 1 1 auto; */
+}
+app-main {
+  min-height: 100%;
+  flex: 1 1 auto;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex: 1 1 auto;
+}
+app-footer {
+  display: block;
+  /* position: absolute;
+  bottom: 0; */
+  min-width: 100%;
+  background: pink;
+
+}
+
+.footer{
+  /* position: absolute; */
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer img {
+min-width: 100px;
+}
+

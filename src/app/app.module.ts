@@ -18,15 +18,14 @@ import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MainComponent } from './component/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TaskComponent } from './component/task/task.component';
+
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-// import { BoardComponent } from './component/board/board.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateTaskComponent } from './component/create-task/create-task.component';
+// import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TaskDialogComponent } from './component/task-dialog/task-dialog.component';
+import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -39,6 +38,10 @@ import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { TaskComponent } from './component/task/task.component';
+import { TaskDialogComponent } from './component/task-dialog/task-dialog.component';
+// import { TaskDialogResult } from './component/task-dialog/task-dialog.component';
+// import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -51,9 +54,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FooterComponent,
     MainComponent,
     TaskComponent,
-    // BoardComponent,
-    CreateTaskComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    // TaskDialogResult
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     provideFirestore(() => getFirestore()),
     MatSelectModule,
     MatFormFieldModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+
 
 
 
