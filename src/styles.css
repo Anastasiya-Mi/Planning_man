@@ -1,45 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
 
-* {
-  margin: 0;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.board{
+  border: 2px solid black;
+  width:200px;
+  height:200px;
+  gap: 10px
 }
-html, body {
-  height: 100%;
+mat-toolbar {
+  margin-bottom: 20px;
 }
-app-root {
-  background: pink;
-  min-height: 100%;
+
+mat-toolbar > span {
+  margin-left: 10px;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.container-wrapper {
   display: flex;
-  flex-direction: column;
-  /* flex: 1 1 auto; */
-}
-app-main {
-  min-height: 100%;
-  flex: 1 1 auto;
-}
-main{
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  flex: 1 1 auto;
-}
-app-footer {
-  display: block;
-  /* position: absolute;
-  bottom: 0; */
-  min-width: 100%;
-  background: pink;
-
+  justify-content: space-around;
 }
 
-.footer{
-  /* position: absolute; */
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.container {
+  width: 400px;
+  margin: 0 25px 25px 0;
 }
 
-.footer img {
-min-width: 100px;
+.list {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  border-radius: 4px;
 }
 
+app-new-task {
+  margin-bottom: 30px;
+}
+
+.empty-label {
+  font-size: 2em;
+  padding-top: 10px;
+  text-align: center;
+  opacity: 0.2;
+}

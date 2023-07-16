@@ -2,12 +2,12 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Task } from '../task/task';
 
+
 @Component({
   selector: 'app-task-dialog',
   templateUrl: './task-dialog.component.html',
   styleUrls: ['./task-dialog.component.css']
 })
-
 export class TaskDialogComponent {
   private backupTask: Partial<Task> = { ...this.data.task };
 
@@ -19,10 +19,12 @@ export class TaskDialogComponent {
   cancel(): void {
     this.data.task.title = this.backupTask.title;
     this.data.task.description = this.backupTask.description;
+    this.data.task.condition = false;
+    // console.log(this.data.task)
     this.dialogRef.close(this.data);
+
   }
 }
-
 export interface TaskDialogData {
   task: Partial<Task>;
   enableDelete: boolean;
