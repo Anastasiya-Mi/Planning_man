@@ -1,31 +1,40 @@
 
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component,Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Task } from '../task/task';
+import { ActivatedRoute} from '@angular/router';
+import { TaskListService } from '../../shared/task-list.service';
 
-import { BoardsComponent } from '../board/board.component';
+
 
 
 @Component({
   selector: 'app-board-list',
   templateUrl: './board-list.component.html',
   styleUrls: ['./board-list.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class BoardListComponent {
-  constructor() {
-    // someApi.getList().subscribe(res => {
-    //   const count = res.size;
-    //   if (count === 0) {
-    //     router.navigate(['/dashboard']);
-    //   }
-    //   if (count === 1) {
-    //     const id = res.list[0].id;
-    //     router.navigate([`/thing/${id}/overview`]);
-    //   }
-    //   if (count > 1) {
-    //     router.navigate(['/thing/list']);
-    //   }
-    // });
+  @Input() task: Task | null = null;
+   taskList:any;
+  constructor(
+
+    private activateRoute: ActivatedRoute,
+    private router: Router,
+    private readonly taskListService: TaskListService,
+
+  ) {
+
   }
+  getData() :any{
+    this.taskList =this.taskListService.CurrentValue;
+    // console.log(this.taskList)
+    return this.taskList;
+  }
+
+  redirectTo() {
+    this.router.navigate(['dashboard']);
+  }
+
+
 }

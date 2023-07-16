@@ -31,6 +31,7 @@ export class BoardsComponent {
       .afterClosed()
       .subscribe((result: TaskDialogResult | undefined) => {
         let value = result?.task.condition;
+        // const valueId = JSON.stringify(result?.task.id);
         const checkTitle = result?.task.title;
         const checkDescription = result?.task.description;
         if (!checkTitle && !checkDescription) {
@@ -39,7 +40,11 @@ export class BoardsComponent {
         if (!result || !value) {
           return;
         }
-        this.store.collection('list').add(result.task)
+        this.store.collection('list').add(result.task);
+        // const valueId = JSON.stringify(result?.task.id);
+        // const addValue = JSON.stringify(result.task);
+
+        // localStorage.setItem(valueId,addValue);
       });
   }
 }

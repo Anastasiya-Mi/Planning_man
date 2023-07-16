@@ -15,7 +15,7 @@
               <button ngFor='{ task: data.task}' (click)="deleteTask(task)" class="btn_card" mat-icon-button>
                 <mat-icon>delete</mat-icon>
               </button>
-              <button (click)="redirectTo()" class="btn_card" mat-icon-button>
+              <button (click)="redirectTo(task)" class="btn_card" mat-icon-button>
                 <mat-icon>link</mat-icon>
               </button>
 

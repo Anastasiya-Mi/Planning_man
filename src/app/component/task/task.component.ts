@@ -8,31 +8,34 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+// import { MatIconModule } from '@angular/material/icon';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 import { TaskDialogResult } from '../task-dialog/task-dialog.component';
 import { ConfirmWindowComponent } from '../confirm-window/confirm-window.component';
-import { BoardsComponent } from '../board/board.component';
+// import { BoardsComponent } from '../board/board.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
-import {Subscription} from 'rxjs';
+import { TaskListService } from '../../shared/task-list.service';
+
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class TaskComponent {
   @Input() task: Task | null = null;
-  @Output() edit = new EventEmitter<Task>();
+  @Output() buttonClick  = new EventEmitter<Task>();
+  // private subs: Subscription;
 
   constructor(
     private dialog: MatDialog,
     private store: AngularFirestore,
     private activateRoute: ActivatedRoute,
     private router: Router,
+    private readonly taskListService: TaskListService,
   ) {
-    // console.log(this.activateRoute);
+
   }
   editTask(task: Task): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
@@ -53,7 +56,7 @@ export class TaskComponent {
         if (!checkTitle && !checkDescription) {
           value = false;
           this.store.collection('list').doc(resultId).delete();
-        }
+      }
         if (!result) {
           return;
         }
@@ -83,7 +86,15 @@ export class TaskComponent {
         this.store.collection('list').doc(resultId).delete();
       });
   }
-  redirectTo() {
-    this.router.navigate(['list']);
+
+  redirectTo(task: Task): void {
+    const id =this.task?.id;
+    this.router.navigate(['list',id ]);
+    // console.log(typeof this.task)
+    this.taskListService.setCurrentValue(this.task);
   }
+  // sendData(data:string): void{
+  //   this.taskListService.setCurrentValue(data);
+
+  // }
 }

@@ -10,14 +10,7 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: BoardsComponent},
-//   children: [{
-//     path: 'list',
-//     component: BoardListComponent,
-//     data: {breadcrumbs: 'Profile info'}
-// }]},
-  { path: 'list',component: BoardListComponent },
-
-
+  { path: 'list/:id',component: BoardListComponent},
   { path: 'register', component: RegisterComponent },
 ];
 
