@@ -3,9 +3,10 @@ import { Task } from '../task/task';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 import { TaskDialogResult } from '../task-dialog/task-dialog.component';
-import { MatIconModule } from '@angular/material/icon';
+// import { MatIconModule } from '@angular/material/icon';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-boards',
